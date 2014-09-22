@@ -1,0 +1,86 @@
+<html>
+  <head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+		function callSparkFunction(func, param){
+			var deviceID = "55ff6c065075555323331487";
+			var accessToken = "5993c11b4db4e5a41967ed8c47d205093479c09f";
+			
+			console.log("Calling " + func + " with " + param);
+			
+			$.post("https://api.spark.io/v1/devices/" + deviceID + "/" + func + "?access_token=" + accessToken,
+				{
+					args:param
+				},
+				function(result){
+					console.log(result);
+				}
+			);
+		}
+		
+		function sendPhoneNumber(){
+			var phone = document.getElementById("text_phone").value;
+			
+			callSparkFunction("setphone", phone);
+		}
+		
+		function sendMessage(){
+			var phone = document.getElementById("text_message").value;
+			
+			callSparkFunction("setmsg", phone);
+		}
+		
+		function sendLimit(){
+			var phone = document.getElementById("text_limit").value;
+			
+			callSparkFunction("setlimit", phone);
+		}
+	</script>
+	<style>
+		td { white-space:pre }
+		.style_caption{
+			float: right;
+		}
+		.style_info{
+			font-size: 8pt;
+			float: right;
+		}
+		.style_tel{
+			width: 200px;
+			height: 30px;
+		}
+		.style_text{
+			width: 200px;
+			height: 30px;
+		}
+		.style_button{
+			width: 200px;
+			height: 30px;
+		}
+	</style>
+  </head>
+  <body>
+	<h1>Configure Spark Core and Temboo Light Monitor</h1>
+	<fieldset>
+		<legend>Configure</legend>
+		<table>
+			<tr>
+				<td><p class="style_caption">Enter phone number to which notification call should be placed:</p></td>
+				<td><input type="tel" id="text_phone" placeholder="phone number" class="style_tel"></td>
+				<td><button type="button" id="button_phone" class="style_button" onclick="sendPhoneNumber()">Set Notification Number</button></td>
+			</tr>
+			<tr>
+				<td><p class="style_caption">Enter message to send:</p></td>
+				<td><input type="text" id="text_message" placeholder="notification message" class="style_text"></td>
+				<td><button type="button" id="button_message" class="style_button" onclick="sendMessage()">Set Message Text</button></td>
+			</tr>
+			<tr>
+				<td><p class="style_caption">Enter Light Sensor threshold value:</p>
+				<td><input type="text" id="text_limit" placeholder="threshold limit" class="style_text"></td>
+				<td><button type="button" id="button_phone" class="style_button" onclick="sendLimit()">Set Threshold Limit</button></td>
+				<td><p class="style_info">(<i>if the sensor value goes below this limit, then notification call will be placed</i>)</p></td>
+			</tr>
+		</table>
+	</fieldset>
+  </body>
+</html>

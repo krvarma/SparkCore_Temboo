@@ -9,4 +9,12 @@ As everybody knows parsing JSON/XML from a memory limited MCU is not that easy. 
 
 **Screenshots**
 
+![enter image description here](https://raw.githubusercontent.com/krvarma/SparkCore_Temboo/master/images/IMG_20140923_015730.jpg)
+
+![enter image description here](https://raw.githubusercontent.com/krvarma/SparkCore_Temboo/master/images/IMG_20140923_015823.jpg)
+
+![enter image description here](https://raw.githubusercontent.com/krvarma/SparkCore_Temboo/master/images/web.png)
+
 **Demo Video**
+
+https://www.youtube.com/watch?v=BORNp10bbY0

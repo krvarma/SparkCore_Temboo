@@ -9,9 +9,9 @@
 const int ldrPin = A7;
 const int ledPin = D2;
 
-#define TEMBOO_ACCOUNT "krvarma"  // Your Temboo account name 
-#define TEMBOO_APP_KEY_NAME "myFirstApp"  // Your Temboo app key name
-#define TEMBOO_APP_KEY "4bd126a7-1209-4044-a"  // Your Temboo app key
+#define TEMBOO_ACCOUNT "<<temboo account>>"  // Your Temboo account name 
+#define TEMBOO_APP_KEY_NAME "<<temboo app key name>>"  // Your Temboo app key name
+#define TEMBOO_APP_KEY "<<temboo app key>>"  // Your Temboo app key
 
 TCPClient client;
 
@@ -108,7 +108,7 @@ int callTembooAndWaitForDigit(int sensorValue){
     tembooChoreo.setAppKey(TEMBOO_APP_KEY);
 
     // Set profile to use for execution
-    tembooChoreo.setProfile("SendMessageAndGetText");
+    tembooChoreo.setProfile("<<Replace with Nexmo Profile Name>>");
 
     // Set Choreo inputs
     String messageText = String("The current sensor value is: ") + String(sensorValue);
